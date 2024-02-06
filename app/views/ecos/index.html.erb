@@ -1,0 +1,65 @@
+<h1>皆のエコ生活を教えて！</h1>
+<h3>一覧ページ</h3>
+
+
+
+<h3>投稿を検索</h3>
+ <%= form_tag({controller:"ecos",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag '検索する'  %>
+<% end %>
+
+<%= form_tag({controller:"ecos",action:"index"}, method: :get) do %>
+    <% Tag.all.each do |t| %>
+        <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+    <% end %>
+    <%= submit_tag '検索' %>
+<% end %>
+
+
+
+
+
+
+
+<%= @ecos.each.with_index(1) do |eco, i| %>
+  第<%= i %>位
+
+<%= eco.about %>
+<br>
+<% end %>
+
+
+
+
+
+
+
+<%= link_to "新規投稿へ", new_eco_path %>
+<div class="ecos-container">
+  <% @ecos.each do |t| %>
+    <div class="eco">
+      <%= t.about %>
+
+      <% if user_signed_in? %>
+      <% if current_user.already_liked?(t) %>
+          <%= button_to eco_like_path(id: t.id, eco_id: t.id), method: :delete do %>
+            <i class="fa-solid fa-heart" style="color: #63E6BE;"></i><%= t.likes.count %>
+          <% end %>
+      <% else %>
+          <%= button_to eco_likes_path(id: t.id, eco_id: t.id), method: :post do %>
+            <i class="fa-solid fa-heart" style="color: #63E6BE;"></i><%= t.likes.count %>
+          <% end %>
+      <% end %>
+  <% else %>
+      <i class="fa-solid fa-heart" style="color: #63E6BE;"></i><%= t.likes.count %>
+  <% end %>
+
+      <%= link_to "編集する", edit_eco_path(t.id) %>
+      <%= button_to "削除する", eco_path(t.id), method: :delete %>
+    </div>
+  <% end %>
+
+
+</div>
+
