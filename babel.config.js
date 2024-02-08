@@ -27,6 +27,7 @@ module.exports = function(api) {
       ],
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
+        '@babel/plugin-proposal-private-methods',
         {
           forceAllTransforms: true,
           useBuiltIns: 'entry',
