@@ -1,10 +1,9 @@
 module.exports = function(api) {
-  var validEnv = ['development', 'test', 'production']
-  var currentEnv = api.env()
-  var isDevelopmentEnv = api.env('development')
-  var isProductionEnv = api.env('production')
-  var isTestEnv = api.env('test')
-
+  var validEnv = ['development', 'test', 'production'];
+  var currentEnv = api.env();
+  var isDevelopmentEnv = api.env('development');
+  var isProductionEnv = api.env('production');
+  var isTestEnv = api.env('test');
   if (!validEnv.includes(currentEnv)) {
     throw new Error(
       'Please specify a valid `NODE_ENV` or ' +
@@ -12,9 +11,8 @@ module.exports = function(api) {
         '"test", and "production". Instead, received: ' +
         JSON.stringify(currentEnv) +
         '.'
-    )
+    );
   }
-
   return {
     presets: [
       isTestEnv && [
@@ -27,7 +25,6 @@ module.exports = function(api) {
       ],
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
-        '@babel/plugin-proposal-private-methods',
         {
           forceAllTransforms: true,
           useBuiltIns: 'entry',
@@ -40,7 +37,6 @@ module.exports = function(api) {
     plugins: [
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
-      '@babel/plugin-proposal-private-methods',
       isTestEnv && 'babel-plugin-dynamic-import-node',
       '@babel/plugin-transform-destructuring',
       [
@@ -78,7 +74,19 @@ module.exports = function(api) {
         {
           async: false
         }
+      ],
+      // 新しく追加するプラグイン
+      [
+        '@babel/plugin-proposal-private-methods', // プラグイン名
+        { loose: true } // オプション
       ]
     ].filter(Boolean)
-  }
-}
+  };
+};
+
+
+
+
+
+
+
