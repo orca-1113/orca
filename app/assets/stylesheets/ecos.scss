@@ -1,6 +1,104 @@
 // Place all the styles related to the ecos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.bg p{
+   padding-left: 150px;
+  padding-top: 44px;
+}
+
+
 .first-haikei p{
    padding-right: 0%;
 }
+
+.tweets-container {
+   width: 50%;
+   margin: 10px auto;
+ }
+ h3 {
+   width: 100px;
+   margin: 30px auto;
+   text-align: center;
+ }
+ .tweet {
+   border-top: solid #00acee;
+   margin-top: 10px;
+   padding-top: 20px;
+ }
+ .main-box {
+   margin: 5px 0;
+   display: flex;
+   justify-content: space-between;
+ }
+ .time {
+   display: flex;
+   justify-content: flex-end;
+ }
+
+ .post-container {
+   margin: 50px auto;
+   width: 50%;
+   border: solid #d3def1;
+   border-radius: 10px;
+   text-align: center;
+   background-color: #d3def1;
+ }
+ .title {
+   font-size: 32px;
+   font-weight: bold;
+   margin-bottom: 50px;
+ }
+ input[type="text"] {
+   width: 95%;
+   height: 40px;
+ }
+ input[type="submit"] {
+   width: 200px;
+   font-size: 20px;
+   margin-top: 50px;
+   margin-bottom: 30px;
+ }
+
+ section.bg{
+   background-color: aquamarine;
+   height: 650px;
+   left: 150%; 
+ }
+
+ p.moji{
+   z-index: 150;
+   margin-left: 200px;
+   font-size: 150px;
+   position: absolute;
+   color:white;
+   left:  150px; 
+   top: 300px;
+ }
+
+ p.image{
+   z-index: -10;
+ }
+
+ z.moji{
+  z-index: 150;
+  margin-left: 400px;
+  font-size: 135%;
+  position: absolute;
+  color:white;
+  left:  150px; 
+  top: 700px;
+}
+
+
+  li {
+    list-style: none;
+  }
+
+
+
+
+ul {
+  display: flex;
+}
+
