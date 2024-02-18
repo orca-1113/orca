@@ -1,6 +1,6 @@
 databases:
   - name: orca_DB
-    databaseName: orca_db
+    databaseName: orca_db_t46b
     user: orca
     region: singapore
 
